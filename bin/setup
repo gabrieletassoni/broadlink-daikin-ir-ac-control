@@ -12,7 +12,7 @@ echo "Installing binaries"
 sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_cli
 sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_discovery
 sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_wrapper
-sudo chmod +x "/usr/bin/broadlink_*"
+sudo chmod +x /usr/bin/broadlink_*
 
 echo "Installing ircodes"
 sudo mkdir -p "$CODESDIR"
@@ -30,5 +30,3 @@ sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broad
 sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/off.hex
 
 echo "Setup finished succesfully, please use broadlink_discovery to find the devices in your network and the broadlink_wrapper to send the codes to the device"
-
-
