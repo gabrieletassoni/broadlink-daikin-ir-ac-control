@@ -5,7 +5,7 @@ I use this in my private house, via a raspberry pi, it's the first step of the i
 
 ## Install script:
 
-Copy and paste the following command to start the setup script (must be root):
+Copy and paste the following command to start the setup script (must be a sudo system):
 
 ```
 source <(curl -s https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/setup)
