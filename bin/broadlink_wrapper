@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -ne 5 ]; then
+	echo "Your command line must contain 4 arguments"
+	echo "broadlink_wrapper TYPE HOST MAC IRCODE"
+	echo " - the TYPE, HOST and MAC params could be found using the broadlink_discover command"
+	exit 1
+fi
+
+TYPE="$1"
+HOST="$2"
+MAC="$3"
+IRCODE="$4"
+
+broadlink_cli --type "$TYPE" --host "$HOST" --mac "$MAC" --send $(tail -2 "/etc/broadlink-daikin/ircodes/${IRCODE}.hex" | head -1)
