@@ -1,39 +1,33 @@
 #!/bin/bash -e
 
-if [[ $EUID -ne 0 ]]; then
-  echo "You must be a root user" 2>&1
-  exit 1
-else
-  CODESDIR="/etc/broadlink-daikin/ircodes"
+CODESDIR="/etc/broadlink-daikin/ircodes"
 
-  echo "Installing prerequisites"
-  echo "Debian packages (checking for sudo):"
-  sudo apt install python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
-  echo "broadlink python wrapper"
-  sudo pip install broadlink==0.10
+echo "Installing prerequisites"
+echo "Debian packages (checking for sudo):"
+sudo apt install python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
+echo "broadlink python wrapper"
+sudo pip install broadlink==0.10
 
-  echo "Installing binaries"
-  sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_cli
-  sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_discovery
-  sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_wrapper
+echo "Installing binaries"
+sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_cli
+sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_discovery
+sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_wrapper
 
-  echo "Installing ircodes"
-  sudo mkdir -p "$CODESDIR"
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/20.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/21.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/22.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/23.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/24.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/25.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/26.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/27.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/28.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/29.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/30.hex
-  sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/off.hex
+echo "Installing ircodes"
+sudo mkdir -p "$CODESDIR"
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/20.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/21.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/22.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/23.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/24.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/25.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/26.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/27.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/28.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/29.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/30.hex
+sudo wget -P "$CODESDIR" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/ircodes/off.hex
 
-  echo "Setup finished succesfully, please use broadlink_discovery to find the devices in your network and the broadlink_wrapper to send the codes to the device"
-fi
+echo "Setup finished succesfully, please use broadlink_discovery to find the devices in your network and the broadlink_wrapper to send the codes to the device"
 
-exit 0
 
