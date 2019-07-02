@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -ne 5 ]; then
+if [ $# -ne 4 ]; then
 	echo "Your command line must contain 4 arguments"
 	echo "broadlink_wrapper TYPE HOST MAC IRCODE"
 	echo " - the TYPE, HOST and MAC params could be found using the broadlink_discover command"
