@@ -12,6 +12,7 @@ echo "Installing binaries"
 sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_cli
 sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_discovery
 sudo wget -P "/usr/bin/" https://raw.githubusercontent.com/gabrieletassoni/broadlink-daikin-ir-ac-control/master/bin/broadlink_wrapper
+sudo chmod +x "/usr/bin/broadlink_*"
 
 echo "Installing ircodes"
 sudo mkdir -p "$CODESDIR"
