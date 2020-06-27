@@ -5,9 +5,9 @@ CODESDIR="/etc/broadlink-daikin/ircodes"
 echo "Installing prerequisites"
 echo "Debian packages (checking for sudo):"
 apt update
-apt install -y python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg62-turbo-dev zlib1g-dev
+apt install -y python3 python3-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg62-turbo-dev zlib1g-dev
 echo "broadlink python wrapper"
-pip install broadlink==0.10
+pip3 install broadlink
 
 echo "Installing binaries"
 wget -P "/usr/bin/" https://raw.githubusercontent.com/mjg59/python-broadlink/master/cli/broadlink_cli
